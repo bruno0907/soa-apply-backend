@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules ./src/server.ts",
     "start": "ts-node-dev ./src/server.ts",
-    "build": ""
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/cors": "^2.8.9",
