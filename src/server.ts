@@ -5,6 +5,7 @@ import mongoose from 'mongoose'
 import { config } from 'dotenv'
 
 config({ path: __dirname + '/' + '.env' })
+
 const app = express()
 
 const PORT = process.env.PORT
@@ -16,10 +17,11 @@ mongoose.connect(URI, {
   useCreateIndex: true,
   useFindAndModify: false
 }).then(() => console.log('Connected to the Database'))     
-  .catch(error => console.error(error.message))
+.catch(error => console.error(error.message))
 
 app.use(cors())
 app.use(express.json())
+
 app.use(route)
 
-app.listen(PORT, () => console.log('Server running on http://localhost:3333'))
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
