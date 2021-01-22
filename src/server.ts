@@ -7,7 +7,7 @@ require('dotenv').config({ path: __dirname + '/.env'})
 const app = express()
 
 const _PORT = process.env.PORT
-const _DB = process.env.MONGOOSE_DB as string
+const _DB = process.env.MONGOOSE_DB || 'mongodb+srv://admin:N0xCYTHsvpt39682@cluster0.tofyy.mongodb.net/soa-applies?retryWrites=true&w=majority'
 
 connection.connect(_DB)
 
