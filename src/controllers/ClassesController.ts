@@ -37,24 +37,7 @@ class ClassesController{
       })
     }
   }
-
-  show = async(req: Request, res: Response) => {
-    const { id } = req.params
-
-    try {
-      const specs = await ClassShowService.execute(id)
-
-      return res.status(200).json({
-        status: 200,
-        specs
-      })
-    } catch (error) {
-      return res.status(400).json({
-        status: 400,
-        error: error.message
-      })
-    }
-  }
+  
 }
 
 export default new ClassesController

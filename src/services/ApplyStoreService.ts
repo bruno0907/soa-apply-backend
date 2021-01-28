@@ -6,7 +6,8 @@ interface ApplyProps{
   className: String;
   mainSpec: String;
   offSpec: String;
-  observations: String
+  about: String;
+  approvalStatus: String;
 }
 
 class ApplyStoreService{

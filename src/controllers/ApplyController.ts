@@ -14,8 +14,7 @@ class ApplicantController{
       className,
       mainSpec,
       offSpec,
-      observations,
-      approvalStatus
+      about      
     } = req.body
 
     const data = {
@@ -24,8 +23,8 @@ class ApplicantController{
       className,
       mainSpec,
       offSpec,
-      observations,
-      approvalStatus
+      about,
+      approvalStatus: 'pending'
     }
 
     try {

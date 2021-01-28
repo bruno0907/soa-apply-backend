@@ -14,7 +14,6 @@ route.post('/apply/:id', ApplyController.update)
 route.delete('/apply/:id', ApplyController.delete)
 
 route.get('/classes', ClassesController.index)
-route.get('/classes/:id', ClassesController.show)
 route.post('/classes', ClassesController.store)
 
 route.post('/admin/new-admin', AdminController.store)
