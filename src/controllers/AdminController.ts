@@ -3,10 +3,10 @@ import AdminStoreService from '../services/AdminStoreService'
 
 class AdminController{
   store = async (req: Request, res: Response) => {
-    const { email, password } = req.body
+    const { username, password } = req.body
 
     try {
-      await AdminStoreService.execute({ email, password })      
+      await AdminStoreService.execute({ username, password })      
       return res.sendStatus(200)
 
     } catch (error) {

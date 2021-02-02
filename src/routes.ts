@@ -2,7 +2,9 @@ import { Router } from 'express'
 
 import AdminController from './controllers/AdminController'
 import ApplyController from './controllers/ApplyController'
+import AuthController from './controllers/AuthController'
 import ClassesController from './controllers/ClassesController'
+
 
 const route = Router()
 
@@ -17,5 +19,7 @@ route.get('/classes', ClassesController.index)
 route.post('/classes', ClassesController.store)
 
 route.post('/admin/new-admin', AdminController.store)
+
+route.post('/admin/sign-in', AuthController.auth)
 
 export default route

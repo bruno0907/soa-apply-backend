@@ -3,17 +3,17 @@ import bcryptjs from 'bcryptjs'
 import Admin from "../models/Admin"
 
 interface AdminProps{
-  email: string;
+  username: string;
   password: string;
 }
 
 class AdminStoreService{
-  execute = async({ email, password }: AdminProps) => {
+  execute = async({ username, password }: AdminProps) => {
     try {
       const passwordHash = await bcryptjs.hash(password, 8)
 
       const data = {
-        email,
+        username,
         password: passwordHash
       }
       
