@@ -21,7 +21,7 @@ const ApplySchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  observations: {
+  about: {
     type: String,
     required: false,
   },   

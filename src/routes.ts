@@ -6,8 +6,8 @@ import ClassesController from './controllers/ClassesController'
 
 const route = Router()
 
-route.post('/', ApplyController.store)
-route.get('/', ApplyController.index)
+route.post('/applies', ApplyController.store)
+route.get('/applies', ApplyController.index)
 
 route.get('/apply/:id', ApplyController.show)
 route.post('/apply/:id', ApplyController.update)
