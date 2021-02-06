@@ -5,6 +5,7 @@ import ApplyIndexService from '../services/ApplyIndexService'
 import ApplyShowService from '../services/ApplyShowService'
 import ApplyDeleteService from '../services/ApplyDeleteService'
 import ApplyUpdateService from '../services/ApplyUpdateService'
+import ApplyFilterService from '../services/ApplyFilterService'
 
 class ApplicantController{
   store = async(req: Request, res: Response) => {
@@ -28,7 +29,7 @@ class ApplicantController{
     }
 
     try {
-      const apply = await ApplyStoreService.execute(data)    
+      const apply = await ApplyStoreService.execute(data)       
       
       return res.status(200).json({
         status: 200,
@@ -36,6 +37,7 @@ class ApplicantController{
       })      
 
     } catch (error) {
+            
       return res.status(400).json({
         status: 400,
         message: error.message
@@ -44,8 +46,15 @@ class ApplicantController{
   }
 
   index = async(req: Request, res: Response) => {
-    try {
-      const applies = await ApplyIndexService.execute()
+    const { status } = req.query
+
+    try {      
+      if(status){             
+        const applies = await ApplyFilterService.execute(String(status))
+        return res.status(200).json(applies)
+      }
+
+      const applies = await ApplyIndexService.execute()       
 
       return res.status(200).json({
         status: 200,
@@ -69,6 +78,19 @@ class ApplicantController{
         status: 200,        
         apply
       })
+    } catch (error) {
+      return res.status(400).json({
+        status: 400,
+        message: error.message
+      })
+    }
+  }
+
+  filter = async(req: Request, res:Response) => {
+    try {
+      const applies = await ApplyFilterService.execute(status)
+      return res.status(200).json(applies)
+
     } catch (error) {
       return res.status(400).json({
         status: 400,
