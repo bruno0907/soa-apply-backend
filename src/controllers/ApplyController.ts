@@ -6,6 +6,8 @@ import ApplyShowService from '../services/ApplyShowService'
 import ApplyDeleteService from '../services/ApplyDeleteService'
 import ApplyUpdateService from '../services/ApplyUpdateService'
 import ApplyFilterService from '../services/ApplyFilterService'
+import DiscordService from '../services/DiscordService'
+
 
 class ApplicantController{
   store = async(req: Request, res: Response) => {
@@ -30,6 +32,10 @@ class ApplicantController{
 
     try {
       const apply = await ApplyStoreService.execute(data)       
+
+      const { _id } = apply
+
+      await DiscordService.execute(_id)
       
       return res.status(200).json({
         status: 200,

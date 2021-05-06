@@ -14,7 +14,8 @@ class ApplyStoreService{
   execute = async(data: ApplyProps) => {  
 
     try {
-      const apply = await Apply.create(data)           
+      const apply = await Apply.create(data) 
+      
       return apply
 
     } catch (error) {
